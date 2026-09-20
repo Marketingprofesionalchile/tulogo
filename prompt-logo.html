@@ -115,6 +115,29 @@
   details summary::-webkit-details-marker{ display:none; }
   details summary{ list-style:none; }
 
+  .prompt-doc-wrap{ position: relative; }
+  .prompt-doc.locked{ filter: blur(7px); user-select:none; pointer-events:none; }
+  .lock-overlay{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:.9rem; padding: 1.5rem; border-radius: 12px;
+    background: rgba(255,255,255,.72);
+  }
+  :root[data-theme="dark"] .lock-overlay{ background: rgba(11,13,34,.78); }
+  .lock-icon{ font-size:1.8rem; }
+  .lock-title{ font-family: var(--font-head); font-weight:700; font-size:1.05rem; max-width: 26ch; }
+  .lock-sub{ font-size:.85rem; color: var(--ink-muted); max-width: 30ch; }
+  .follow-btn{
+    font-family: var(--font-body); font-size:.92rem; font-weight:700;
+    background: var(--blue); color:#fff; border:none; padding:.85rem 1.3rem; border-radius:10px; cursor:pointer;
+    box-shadow: 0 10px 24px rgba(20,40,196,.28);
+  }
+  .follow-btn:active{ opacity:.85; }
+  .unlocked-badge{
+    display:none; align-items:center; gap:.4rem; justify-content:center; font-size:.8rem;
+    color: var(--ink-muted); margin-top:.7rem; font-family: var(--font-mono);
+  }
+  .unlocked-badge.show{ display:flex; }
+
   .note{ font-size:.85rem; color: var(--ink-muted); text-align:center; margin: 1.4rem 0 0; }
   footer{ text-align:center; font-size:.82rem; color: var(--ink-muted); padding: 0 1.4rem 2.5rem; }
 </style>
@@ -131,7 +154,8 @@
 
 <main>
   <div class="sticky-copy">
-    <button class="copy-btn" onclick="copyPrompt()">Copiar prompt completo</button>
+    <button class="copy-btn" id="mainBtn" onclick="handleMainBtn()">Sígueme en TikTok para desbloquear</button>
+    <div class="unlocked-badge" id="unlockedBadge">✅ Contenido desbloqueado</div>
   </div>
 
   <div class="card">
@@ -141,6 +165,7 @@
 
   <div class="card" id="promptCard">
     <h2 style="margin-bottom:1rem;"><span class="step-n">2</span> El prompt</h2>
+    <div class="prompt-doc-wrap">
     <div class="prompt-doc" id="promptBox">
 
 <p class="lead">Diseña una identidad visual profesional y altamente coherente para:</p>
@@ -238,6 +263,13 @@
 <p><strong class="field">PRIORIDAD ABSOLUTA:</strong> 1. Silueta limpia — 2. Concepto único — 3. Proporciones — 4. Geometría — 5. Reconocimiento — 6. Simplicidad — 7. Identidad de marca. No priorizar el detalle sobre la claridad.</p>
 
     </div>
+    <div class="lock-overlay" id="lockOverlay">
+      <span class="lock-icon">🔒</span>
+      <span class="lock-title">Sígueme en TikTok para desbloquear el prompt completo</span>
+      <span class="lock-sub">@mktgprofesional — toca el botón, sigue la cuenta y vuelve aquí</span>
+      <button class="follow-btn" onclick="handleMainBtn()">Sígueme y desbloquear</button>
+    </div>
+    </div>
   </div>
 
   <div class="card">
@@ -253,6 +285,50 @@
 <footer>Marketing Profesional — herramientas gratis para emprendedores</footer>
 
 <script>
+var TIKTOK_URL = 'https://www.tiktok.com/@mktgprofesional';
+var STORAGE_KEY = 'mp_logo_unlocked';
+
+function isUnlocked(){
+  try{ return localStorage.getItem(STORAGE_KEY) === '1'; }
+  catch(e){ return false; }
+}
+
+function setUnlocked(){
+  try{ localStorage.setItem(STORAGE_KEY, '1'); }
+  catch(e){ /* si falla, igual desbloqueamos visualmente para esta sesión */ }
+}
+
+function applyLockState(){
+  var locked = !isUnlocked();
+  var doc = document.getElementById('promptBox');
+  var overlay = document.getElementById('lockOverlay');
+  var btn = document.getElementById('mainBtn');
+  var badge = document.getElementById('unlockedBadge');
+  if(locked){
+    doc.classList.add('locked');
+    overlay.style.display = 'flex';
+    btn.textContent = 'Sígueme en TikTok para desbloquear';
+    badge.classList.remove('show');
+  }else{
+    doc.classList.remove('locked');
+    overlay.style.display = 'none';
+    btn.textContent = 'Copiar prompt completo';
+    badge.classList.add('show');
+  }
+}
+
+function handleMainBtn(){
+  if(!isUnlocked()){
+    window.open(TIKTOK_URL, '_blank');
+    setUnlocked();
+    applyLockState();
+  }else{
+    copyPrompt();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', applyLockState);
+
 function copyPrompt(){
   try{
     var box = document.getElementById('promptBox');
