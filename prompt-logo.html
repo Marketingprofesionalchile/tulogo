@@ -105,6 +105,28 @@
   .prompt-doc, .prompt-doc *{ overflow-wrap: break-word; word-break: break-word; }
   .prompt-doc{ overflow-x: hidden; }
   .prompt-doc strong.field{ font-family: var(--font-mono); font-size:.85em; }
+  .editable-box{
+    background: #FFF200;
+    color: #10132B;
+    border: 2px solid #D9D000;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: .4rem 0 1rem;
+  }
+  .editable-box-title{
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 .7rem;
+    letter-spacing: .02em;
+  }
+  .editable-box p{ color:#10132B; margin:0 0 .45rem; }
+  .editable-box .ph{
+    background:#FFFFFF;
+    color:#10132B;
+    border:1px solid #B8B000;
+  }
 
   .toggle-label{
     display:flex; align-items:center; justify-content:space-between; cursor:pointer;
@@ -160,7 +182,7 @@
 
   <div class="card">
     <h2><span class="step-n">1</span> Completa los datos</h2>
-    <p>Antes de copiar, reemplaza mentalmente cada casilla amarilla con los datos de tu negocio: nombre, rubro, colores, estilo y los valores que quieres transmitir.</p>
+    <p>Antes de copiar, completa únicamente los campos amarillos del bloque «DATOS EDITABLES». Ahí están reunidas todas las variables que debes cambiar: nombre, rubro, servicio, público, valores, concepto, colores y formato de entrega.</p>
   </div>
 
   <div class="card" id="promptCard">
@@ -168,102 +190,136 @@
     <div class="prompt-doc-wrap">
     <div class="prompt-doc" id="promptBox">
 
-<p class="lead">Diseña una identidad visual profesional y altamente coherente para:</p>
-<p><strong class="field">NOMBRE DEL NEGOCIO:</strong> <span class="ph">[NOMBRE DEL NEGOCIO]</span><br>
-<strong class="field">RUBRO / INDUSTRIA:</strong> <span class="ph">[RUBRO O INDUSTRIA]</span><br>
-<strong class="field">SERVICIO PRINCIPAL:</strong> <span class="ph">[SERVICIO PRINCIPAL]</span><br>
-<strong class="field">PÚBLICO OBJETIVO:</strong> <span class="ph">[PÚBLICO OBJETIVO]</span></p>
+<p class="lead"># PROMPT MAESTRO — LOGOTIPO PROFESIONAL</p>
+<p>Actúa como un <strong>director de arte y diseñador de identidades visuales de primer nivel</strong>, especializado en creación de marcas modernas, minimalistas, geométricas y profesionalmente construidas.</p>
+<p>Tu tarea es desarrollar un <strong>logotipo limpio, distintivo, minimalista y visualmente memorable</strong>, basado en una síntesis geométrica clara y una construcción visual precisa.</p>
 
-<h3>1. Identidad de marca</h3>
-<p>La identidad debe transmitir principalmente: <span class="ph">[VALOR 1]</span>, <span class="ph">[VALOR 2]</span> y <span class="ph">[VALOR 3]</span>.</p>
-<p>La personalidad de la marca debe ser: <span class="ph">[MODERNA / PROFESIONAL / PREMIUM / CERCANA / ROBUSTA / ELEGANTE / INNOVADORA]</span>.</p>
+<h3>DATOS EDITABLES — CAMBIA SOLO LO AMARILLO</h3>
+<div class="editable-box">
+  <p class="editable-box-title">Completa estos datos antes de copiar el prompt</p>
+  <p><strong class="field">Negocio:</strong> <span class="ph">[NOMBRE]</span></p>
+  <p><strong class="field">Rubro / industria:</strong> <span class="ph">[INDUSTRIA]</span></p>
+  <p><strong class="field">Servicio principal:</strong> <span class="ph">[SERVICIO]</span></p>
+  <p><strong class="field">Público objetivo:</strong> <span class="ph">[PÚBLICO]</span></p>
+  <p><strong class="field">Valores clave:</strong> <span class="ph">[VALOR 1, VALOR 2, VALOR 3]</span></p>
+  <p><strong class="field">Concepto visual principal:</strong> <span class="ph">[CONCEPTO / OBJETO]</span></p>
+  <p><strong class="field">Color 1:</strong> <span class="ph">[COLOR 1]</span></p>
+  <p><strong class="field">Color 2:</strong> <span class="ph">[COLOR 2]</span></p>
+  <p><strong class="field">Formato de entrega:</strong> <span class="ph">[SOLO ISOTIPO / ISOTIPO + NOMBRE]</span></p>
+</div>
+<p><strong>Importante:</strong> Los datos de arriba son las únicas variables que debes cambiar. El resto del prompt debe mantenerse igual.</p>
 
-<h3>2. Concepto visual</h3>
-<p>Crear un símbolo gráfico basado en UNA SOLA IDEA VISUAL PRINCIPAL.</p>
-<p><strong class="field">ELEMENTO PRINCIPAL:</strong> <span class="ph">[UN SOLO OBJETO, FORMA O CONCEPTO RELACIONADO CON EL NEGOCIO]</span><br>
-<strong class="field">RECURSO SECUNDARIO OPCIONAL:</strong> <span class="ph">[UN SOLO ELEMENTO SECUNDARIO O "NINGUNO"]</span></p>
-<p>Utilizar únicamente 1 elemento visual principal + 1 recurso secundario como máximo. No intentar representar todos los elementos relacionados con el rubro. El símbolo debe comunicar el negocio mediante síntesis visual, no mediante una ilustración literal. No combinar múltiples objetos independientes.</p>
+<h3>REGLAS DE DISEÑO</h3>
 
-<h3>3. Construcción del símbolo</h3>
-<p>Crear un símbolo compacto basado en una silueta principal única, clara y reconocible. Construirlo mediante formas geométricas simples, curvas limpias, proporciones controladas, alineaciones precisas y espacios negativos intencionales. El símbolo debe parecer construido profesionalmente en software vectorial. Debe tener:</p>
+<p><strong>1. CONCEPTO ÚNICO</strong></p>
+<p>Construye el símbolo alrededor de <strong>un único concepto visual principal: el concepto visual principal indicado en los datos editables</strong>.</p>
+<p>El concepto debe estar <strong>sintetizado y simplificado geométricamente</strong>, evitando una representación literal o ilustrativa.</p>
+<p>Puede utilizarse <strong>máximo 1 elemento secundario</strong>, únicamente cuando esté integrado de manera natural en el concepto principal y mejore su lectura.</p>
+<p>El resultado debe tener <strong>un único foco visual dominante</strong>.</p>
+
+<p><strong>2. SÍNTESIS Y GEOMETRÍA</strong></p>
+<p>Construye el símbolo mediante:</p>
 <ul>
-  <li>Geometría limpia</li>
-  <li>Proporciones equilibradas</li>
-  <li>Curvas suaves</li>
-  <li>Grosor visual consistente</li>
-  <li>Bordes definidos</li>
-  <li>Espacios negativos controlados</li>
-  <li>Pocos elementos</li>
-  <li>Una silueta reconocible incluso a tamaño pequeño</li>
+<li>formas geométricas simples</li>
+<li>proporciones equilibradas</li>
+<li>curvas limpias</li>
+<li>ángulos coherentes</li>
+<li>espacios negativos intencionales</li>
+<li>grosor visual consistente</li>
+<li>simetría o asimetría deliberada</li>
+<li>pocos elementos</li>
+<li>alta síntesis visual</li>
 </ul>
+<p>El símbolo debe parecer <strong>construido geométricamente</strong>, con precisión de diseño profesional.</p>
+<p>Evita detalles pequeños que puedan perderse al reducir el logotipo.</p>
 
-<h3>4. Simplificación</h3>
-<p>Aplicar un nivel de simplificación propio de una identidad corporativa profesional. Eliminar cualquier elemento que no sea necesario para comunicar el concepto. Priorizar: SILUETA &gt; PROPORCIÓN &gt; GEOMETRÍA &gt; RECONOCIMIENTO &gt; DETALLE. Si un detalle no mejora la identificación del símbolo, eliminarlo. El resultado debe poder describirse visualmente con una frase corta.</p>
-
-<h3>5. Geometría y proporciones</h3>
-<p>Todas las partes del símbolo deben utilizar el mismo lenguaje geométrico. Mantener:</p>
+<p><strong>3. CALIDAD DE SILUETA</strong></p>
+<p>La silueta debe ser <strong>fuerte, reconocible y memorable</strong>.</p>
+<p>Debe funcionar correctamente:</p>
 <ul>
-  <li>Grosor visual uniforme</li>
-  <li>Radios de curva coherentes</li>
-  <li>Esquinas consistentes</li>
-  <li>Proporciones equilibradas</li>
-  <li>Alineaciones precisas</li>
-  <li>Espaciado uniforme</li>
-  <li>Simetría cuando corresponda</li>
+<li>a tamaño grande</li>
+<li>a tamaño pequeño</li>
+<li>en una sola tinta</li>
+<li>completamente en negro</li>
+<li>independientemente del color</li>
 </ul>
-<p>Las curvas deben ser suaves y continuas. Las intersecciones deben ser limpias. No crear deformaciones, uniones extrañas, elementos flotantes ni formas accidentalmente fusionadas.</p>
+<p>El símbolo debe conservar su identidad cuando se elimina el color.</p>
+<p>La forma debe poder reconocerse únicamente por su <strong>silueta y estructura geométrica</strong>.</p>
 
-<h3>6. Espacio negativo</h3>
-<p>Utilizar espacio negativo únicamente cuando tenga una función visual o conceptual clara. Los espacios internos deben ser amplios, limpios e intencionales. Evitar pequeños huecos, perforaciones innecesarias, detalles microscópicos y espacios accidentales.</p>
+<p><strong>4. RESTRICCIONES VISUALES</strong></p>
+<p>El diseño debe ser estrictamente:</p>
+<p><strong>2D + plano + limpio + minimalista + geométrico.</strong></p>
+<p>Utiliza únicamente formas sólidas y una construcción visual clara.</p>
+<p>El fondo debe ser:</p>
+<p><strong>blanco sólido puro (#FFFFFF).</strong></p>
+<p>No introducir efectos visuales que alteren la construcción plana del símbolo.</p>
 
-<h3>7. Estilo visual</h3>
-<p>Estilo: <span class="ph">[MINIMALISTA / MODERNO / PREMIUM / CORPORATIVO / ELEGANTE / ROBUSTO / TECNOLÓGICO / AMIGABLE]</span></p>
-<p>El resultado debe ser limpio, profesional, contemporáneo, memorable, escalable y atemporal. Debe funcionar como una verdadera identidad de marca y no como un clipart o ilustración genérica.</p>
-
-<h3>8. Color</h3>
-<p><strong class="field">COLOR PRINCIPAL:</strong> <span class="ph">[COLOR 1]</span><br>
-<strong class="field">COLOR SECUNDARIO:</strong> <span class="ph">[COLOR 2]</span><br>
-<strong class="field">COLOR DE DESTACADOS Y CONTORNOS:</strong> NEGRO PURO #000000</p>
-<p>Utilizar colores planos, sólidos y de alto contraste. El negro puro debe utilizarse en los elementos destacados, contornos o detalles estructurales que necesiten mayor contraste. No utilizar degradados, transparencias, sombras, brillos ni efectos de iluminación. El diseño debe funcionar correctamente en color, negro sobre blanco, blanco sobre negro y una sola tinta.</p>
-
-<h3>9. Texto</h3>
-<p><strong class="field">TIPO DE LOGO:</strong> <span class="ph">[SOLO SÍMBOLO / SÍMBOLO + NOMBRE / ISOTIPO / ISOLOGO]</span></p>
-<p>Si incluye texto — <strong class="field">NOMBRE:</strong> <span class="ph">[NOMBRE DEL NEGOCIO]</span>, <strong class="field">SUBTÍTULO:</strong> <span class="ph">[SUBTÍTULO / NINGUNO]</span>. Utilizar una tipografía <span class="ph">[MODERNA / GEOMÉTRICA / ELEGANTE / ROBUSTA / MINIMALISTA]</span>, perfectamente legible y coherente con el símbolo. No deformar las letras. No utilizar tipografías excesivamente decorativas.</p>
-
-<h3>10. Composición</h3>
-<p><strong class="field">DISTRIBUCIÓN:</strong> <span class="ph">[VERTICAL / HORIZONTAL / AMBAS]</span></p>
-<p>Mantener una relación proporcional clara entre símbolo y texto. El símbolo debe conservar una presencia visual fuerte sin competir excesivamente con el nombre. Mantener suficiente espacio libre alrededor de todos los elementos.</p>
-
-<h3>11. Calidad vectorial</h3>
-<p>El resultado debe tener apariencia de diseño vectorial profesional, con bordes perfectamente definidos, curvas suaves, formas limpias, geometría precisa, proporciones consistentes, ausencia de artefactos y ausencia de deformaciones. Debe ser fácil de convertir posteriormente a SVG, EPS o PDF vectorial.</p>
-
-<h3>12. Restricciones absolutas</h3>
-<p>NO utilizar: sombras, degradados, brillos, efectos 3D, biseles, texturas, perspectiva, efectos metálicos, volumen artificial, fotorealismo, mockups, fotografías, escenarios, ni elementos decorativos innecesarios o exceso de detalles.</p>
-<p>NO agregar objetos que no hayan sido definidos en el concepto. NO combinar múltiples símbolos independientes. NO deformar herramientas, objetos, letras o elementos gráficos. NO crear intersecciones confusas. NO agregar detalles simplemente para hacer el logo más llamativo.</p>
-<p>La simplicidad, limpieza y coherencia visual tienen prioridad absoluta sobre el detalle.</p>
-
-<h3>13. Prueba final de calidad</h3>
-<p>Antes de finalizar, comprobar:</p>
+<p><strong>5. PALETA</strong></p>
+<p>Utiliza como máximo:</p>
 <ul>
-  <li>¿Existe una sola idea visual dominante?</li>
-  <li>¿La silueta se entiende inmediatamente?</li>
-  <li>¿El símbolo funciona sin texto?</li>
-  <li>¿Funciona en blanco y negro?</li>
-  <li>¿Se reconoce a tamaño pequeño?</li>
-  <li>¿Las proporciones son coherentes?</li>
-  <li>¿Todas las formas utilizan el mismo lenguaje geométrico?</li>
-  <li>¿Existe algún elemento innecesario?</li>
-  <li>¿Hay alguna intersección confusa?</li>
-  <li>¿Parece realmente un logotipo profesional?</li>
+<li>el Color 1 indicado en los datos editables</li>
+<li>el Color 2 indicado en los datos editables</li>
+<li>negro puro (#000000) cuando sea necesario para contraste estructural.</li>
 </ul>
-<p>Si existe algún elemento innecesario, eliminarlo. Si existen demasiados detalles, simplificarlo. Si dos elementos compiten visualmente, priorizar uno.</p>
+<p>Los colores deben ser <strong>planos, sólidos y uniformes</strong>.</p>
+<p>No introducir colores adicionales.</p>
 
-<h3>Resultado final</h3>
-<p>Generar un logotipo profesional, limpio, geométricamente coherente, minimalista, memorable y fácilmente reconocible. El resultado debe parecer diseñado por un especialista en branding e identidad visual, preparado para convertirse posteriormente en un archivo vectorial profesional.</p>
-<p><strong class="field">PRIORIDAD ABSOLUTA:</strong> 1. Silueta limpia — 2. Concepto único — 3. Proporciones — 4. Geometría — 5. Reconocimiento — 6. Simplicidad — 7. Identidad de marca. No priorizar el detalle sobre la claridad.</p>
+<p><strong>6. TIPOGRAFÍA Y FORMATO DE ENTREGA</strong></p>
+<p>Respeta estrictamente la variable:</p>
+<p><strong>Formato de entrega: el formato de entrega indicado en los datos editables</strong></p>
+<p>Si se especifica:</p>
+<p><strong>SOLO ISOTIPO</strong></p>
+<p>→ generar exclusivamente el símbolo.<br>
+→ no incluir nombre, palabra, letras, iniciales ni texto adicional.</p>
+<p>Si se especifica:</p>
+<p><strong>ISOTIPO + NOMBRE</strong></p>
+<p>→ generar el símbolo acompañado del nombre exacto:</p>
+<p><strong>el nombre indicado en los datos editables</strong></p>
+<p>Utilizar una tipografía <strong>sans-serif geométrica, moderna, limpia y profesional</strong>.</p>
+<p>La tipografía debe complementar el símbolo, mantener una jerarquía clara y presentar un espaciado equilibrado.</p>
+<p><strong>Nunca inventar, modificar o sustituir el nombre proporcionado.</strong></p>
 
-    </div>
-    <div class="lock-overlay" id="lockOverlay">
+<p><strong>7. LIMPIEZA Y PRECISIÓN</strong></p>
+<p>El resultado debe sentirse como un <strong>logotipo profesional diseñado por un estudio de branding</strong>, no como una ilustración.</p>
+<p>Cada forma, corte, curva y espacio negativo debe tener una función visual.</p>
+<p>Prioriza:</p>
+<p><strong>simplicidad → precisión → reconocimiento → memorabilidad.</strong></p>
+<p>La solución debe ser visualmente limpia incluso cuando se observa a tamaño reducido.</p>
+
+<h3>PROCESO DE EJECUCIÓN</h3>
+
+<p><strong>PASO 1 — SÍNTESIS GEOMÉTRICA</strong></p>
+<p>Antes de generar la imagen, <strong>ESCRIBE EN EL CHAT ÚNICAMENTE 2 LÍNEAS</strong>:</p>
+<p><strong>Línea 1:</strong> describe la síntesis geométrica que utilizarás para transformar el concepto visual principal indicado en los datos editables en un símbolo.</p>
+<p><strong>Línea 2:</strong> valida brevemente que la solución cumple la prueba de silueta simple, reconocimiento, escalabilidad y ausencia de elementos superfluos.</p>
+<p><strong>No escribas ninguna explicación adicional en este paso.</strong></p>
+<p>Inmediatamente después de escribir esas 2 líneas, <strong>ejecuta la generación de la imagen</strong>.</p>
+
+<p><strong>PASO 2 — GENERACIÓN</strong></p>
+<p>Genera el logotipo aplicando <strong>estrictamente</strong> la síntesis geométrica definida en el Paso 1.</p>
+<p>Respeta todas las variables proporcionadas:</p>
+<ul>
+<li>concepto</li>
+<li>formato de entrega</li>
+<li>nombre</li>
+<li>colores</li>
+<li>geometría</li>
+<li>composición</li>
+<li>estilo visual</li>
+</ul>
+<p>No modificar el concepto durante la generación.</p>
+<p>La composición final debe ser limpia, equilibrada, centrada y presentada sobre <strong>fondo blanco puro</strong>.</p>
+
+<p><strong>INSTRUCCIÓN DE TRADUCCIÓN PARA LA HERRAMIENTA VISUAL</strong></p>
+<p>Si necesitas generar un prompt interno para una herramienta de imagen, <strong>redacta la descripción exclusivamente en términos positivos</strong>, describiendo únicamente las formas, características, composición, colores, geometría y elementos que deben estar presentes.</p>
+<p><strong>No traduzcas las restricciones como negaciones ni describas elementos ausentes.</strong></p>
+<p>Prioriza siempre una descripción positiva de la solución visual final.</p>
+
+<h3>CRITERIO FINAL</h3>
+<p>El resultado debe parecer un <strong>isotipo profesional, geométrico, minimalista y listo para convertirse en una identidad de marca</strong>, con una construcción visual simple, memorable, reproducible y fácilmente vectorizable.</p>
+<p><strong>La calidad debe provenir de la síntesis y precisión del diseño, no de la cantidad de elementos.</strong></p>
+
+<div class="lock-overlay" id="lockOverlay">
       <span class="lock-icon">🔒</span>
       <span class="lock-title">Sígueme en TikTok para desbloquear el prompt completo</span>
       <span class="lock-sub">@mktgprofesional — toca el botón, sigue la cuenta y vuelve aquí</span>
